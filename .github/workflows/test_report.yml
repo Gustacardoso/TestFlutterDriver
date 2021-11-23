@@ -22,3 +22,5 @@ jobs:
         name: Workflow Report
         path: 'reports/Report_test*.xml'
         reporter: jest-junit
+        file_reporters:
+  json: reports/test-results.json
