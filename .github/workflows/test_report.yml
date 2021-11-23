@@ -12,8 +12,11 @@ jobs:
     name: Workflow test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: ./
+      - uses: actions/checkout@v2         # checkout the repo
+      - run: npm ci                       # install packages
+      - run: npm test                     # run tests (configured to use jest-junit reporter)
+      - uses: actions/upload-artifact@v2  # upload test results
+        if: success() || failure()        # run this step even if previous step failed
       with:
         artifact: test-results
         name: Workflow Report
