@@ -16,7 +16,7 @@ jobs:
       - run: flutter pub get              # install packages
       - run: flutter test  # run tests (configured to use jest-junit reporter)
       - uses: actions/upload-artifact@v2  # upload test results
-        if: success() || failure()        # run this step even if previous step failed
+       
       with:
         artifact: test-results
         name: Workflow Report
