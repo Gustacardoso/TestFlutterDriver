@@ -16,6 +16,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '2.2.2'
+      - run: dart pub get
       - run: flutter test test_driver/bdd
 
   build_appapk:
