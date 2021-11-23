@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2         # checkout the repo
-      - run: npm ci                       # install packages
-      - run: npm test                     # run tests (configured to use jest-junit reporter)
+      - run: flutter pub get                    # install packages
+      - run: flutter test test_driver/bdd                     # run tests (configured to use jest-junit reporter)
       - uses: actions/upload-artifact@v2  # upload test results
         if: success() || failure()        # run this step even if previous step failed
       with:
