@@ -1,6 +1,7 @@
 import 'package:flutter_driver/src/driver/driver.dart';
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:gherkin/gherkin.dart';
+import 'package:integration_test/integration_test.dart';
 
 import '../../pages/tarefa/criar.dart';
 
