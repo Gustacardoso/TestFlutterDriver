@@ -16,7 +16,6 @@ jobs:
         with:
           name: cypress-cucumber-report
           path: todomvc-typescript-react/cypress/cucumber-report/
-        with:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: learn-cypress-cucumber-reports
