@@ -11,8 +11,6 @@ jobs:
         with:
           working-directory: todomvc-typescript-react
           install-command: flutter pub get
-      - name: Generate report
-        run: cd todomvc-typescript-react && npm run cy:report
       - name: Upload report
         uses: actions/upload-artifact@v2
         with:
