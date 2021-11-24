@@ -12,6 +12,6 @@ jobs:
         with:
           flutter-version: '2.2.2'
       - run: flutter pub get
-      - run: flutter test
+      - run: dart test
       - run: cd reports/ && node report.js
       - run: echo "file:///E:/projeto%20test/flutter-fundamentos-aula-5/reports/report.html"
