@@ -4,9 +4,9 @@
   uses: deblockt/cucumber-report-annotations-action@v1.8
   with:
     # github token
-    access-token: 
+    access-token: test_driver/bdd/features/**.feature
     # glob to cucumber json files
-    path: # default is **/cucumber-report.json
+    path: ./reports/report.json
     # the check status to use on cucumber error. Can be 'success', 'neutral' or 'failure'
     check-status-on-error: # default is failure
     # the check status to use on cucumber undefined steps. Can be 'success', 'neutral' or 'failure'
