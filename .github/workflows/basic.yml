@@ -17,7 +17,6 @@ jobs:
           name: cypress-cucumber-report
           path: todomvc-typescript-react/cypress/cucumber-report/
       - uses: shallwefootball/s3-upload-action@master
-        name: Upload S3
         id: S3
         with:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
