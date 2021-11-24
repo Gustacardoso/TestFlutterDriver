@@ -12,5 +12,5 @@ jobs:
         with:
           flutter-version: '2.2.2'
       - run: flutter pub get
-      - run: cd reports/ 
-      - run: node report.js
+      - run: cd reports/ && node report.js
+      
