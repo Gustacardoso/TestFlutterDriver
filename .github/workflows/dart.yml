@@ -9,7 +9,11 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: flutter run
+        with:
+          java-version: '12.x'
         uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.2.2'
         with:
           working-directory: report
           install-command: flutter pub get
