@@ -1,19 +1,16 @@
-name: Dart
-
-on:
-  pull_request:
-    branches: [ master ]
-
+name: End-to-end tests
+on: [push]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  cypress-run:
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
-      - name: Install dependencies
-        run: dart pub get
-      - name: Analyze project source
-        run: dart analyze
-      - name: Run tests
-        run: dart test
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: flutter run
+        uses: subosito/flutter-action@v1
+        with:
+          working-directory: report
+          install-command: flutter pub get
+          
