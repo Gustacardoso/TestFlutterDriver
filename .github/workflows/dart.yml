@@ -17,7 +17,7 @@ jobs:
         with:
           flutter-version: '2.2.2'
       - run: flutter pub get
-      - run: flutter test
+      - run: flutter test test_driver/bdd
 
   build_appapk:
     name: Build Flutter (Android)
