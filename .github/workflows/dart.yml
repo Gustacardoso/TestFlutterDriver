@@ -34,9 +34,9 @@ jobs:
       - run: flutter clean
       - name: Generate report flutter
         run:  cd reports && node report.js
-      - name: Upload apk
+      - name: Upload report
         uses: actions/upload-artifact@v2.2.4
         with:
-          name: apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: report
+          path: file:///E:/projeto%20test/flutter-fundamentos-aula-5/reports/report.html
           retention-days: 5
