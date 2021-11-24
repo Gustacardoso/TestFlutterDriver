@@ -17,7 +17,7 @@ jobs:
         with:
           flutter-version: '2.2.2'
       - run: flutter pub get
-      - run: flutter test test_driver/bdd
+ 
 
   build_appapk:
     name: Build Flutter (Android)
@@ -32,7 +32,8 @@ jobs:
         with:
           channel: "stable"
       - run: flutter clean
-      - run: flutter build apk
+      - name: Generate report flutter
+        run:  cd reports && node report.js
       - name: Upload apk
         uses: actions/upload-artifact@v2.2.4
         with:
