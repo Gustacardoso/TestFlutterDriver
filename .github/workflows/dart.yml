@@ -58,4 +58,4 @@ jobs:
           target: ${{ matrix.target }}
           arch: x86_64
           profile: Nexus 6
-          script: flutter test test_driver/bdd
+          script: flutter driver --target=test_driver/e2e/app.dart
