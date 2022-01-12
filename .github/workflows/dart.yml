@@ -1,3 +1,4 @@
+
 name: CI dev
 on:
   push:
@@ -18,12 +19,32 @@ jobs:
           flutter-version: "2.8.0"
       - name: Run Flutter Pub Get
         run: flutter pub get
+      - name: Run Flutter Test
+        run: flutter test
+
+  drive_ios:
+    strategy:
+      matrix:
+        devices: ["iPhone 8", "iPhone 11"]
+      fail-fast: false
+    runs-on: macos-latest
+    needs: flutter_test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2.1.0
+        with:
+          flutter-version: "2.8.0"
+      - uses: futureware-tech/simulator-action@v1
+        with:
+          model: ${{ matrix.devices }}
+      - name: Run Flutter Driver tests on iOS
+        run: flutter test test_driver/bdd
 
   drive_android:
     runs-on: macos-latest
     strategy:
       matrix:
-        api-level: [21]
+        api-level: [21, 29]
         target: [default]
     needs: flutter_test
     steps:
@@ -32,10 +53,10 @@ jobs:
         with:
           flutter-version: "2.8.0"
       - name: Run Flutter Driver tests on android
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@v2.22.0
         with:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
           arch: x86_64
           profile: Nexus 6
-          script: flutter driver --target=test_driver/e2e/app.dart
+          script: flutter test test_driver/bdd
