@@ -47,11 +47,11 @@ void main(){
      // await driver.tap(toque);
      });
      
-    /* tearDownAll(() async {
+     tearDownAll(() async {
        if(driver != null){
          driver.close();
        }
-     });*/
+     });
   
   });
 }

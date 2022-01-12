@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:flutter_gherkin/flutter_gherkin.dart';
+import 'package:test/test.dart';
 import 'package:gherkin/gherkin.dart';
 import 'package:glob/glob.dart';
 import './steps/nova_tarefa.dart';
