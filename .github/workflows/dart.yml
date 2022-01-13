@@ -7,7 +7,7 @@ on:
 
 jobs:
   flutter_test:
-    name: Run flutter test
+    
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,26 +18,7 @@ jobs:
         with:
           flutter-version: "2.8.0"
       
-       
 
-
-  drive_ios:
-    strategy:
-      matrix:
-        devices: ["iPhone 8", "iPhone 11"]
-      fail-fast: false
-    runs-on: macos-latest
-    needs: flutter_test
-    steps:
-      - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v2.1.0
-        with:
-          flutter-version: "2.8.0"
-      - uses: futureware-tech/simulator-action@v1
-        with:
-          model: ${{ matrix.devices }}
-      - name: Run Flutter Driver tests on iOS
-        run: flutter test test_driver/bdd
 
   drive_android:
     runs-on: macos-latest
