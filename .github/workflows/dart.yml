@@ -17,8 +17,8 @@ jobs:
       - uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: "2.8.0"
-      - name: Run Flutter Pub Get
-        run: flutter pub get
+      
+       
 
 
   drive_ios:
@@ -58,4 +58,4 @@ jobs:
           target: ${{ matrix.target }}
           arch: x86_64
           profile: Nexus 6
-          script: flutter driver --target=test_driver/e2e/app.dart
+          script: flutter test test_driver/bdd
